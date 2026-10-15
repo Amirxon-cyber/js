@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10070d">
+    <title>Cyber Lab — JavaScript Universe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="particles"></canvas>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+    <header class="topbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">67</span>
+            <span>SOBIRALIYEV<span class="pink">AMIR</span><small>NURMAKHANOVICH</small></span>
+        </a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Открыть меню">☰</button>
+
+        <nav id="nav">
+            <a href="#home">Главная</a>
+            <a href="#playground">Редактор</a>
+            <a href="#tools">Инструменты</a>
+            <a href="#learn">Обучение</a>
+        </nav>
+
+        <button class="icon-btn" id="themeBtn" title="Сменить тему">☼</button>
+    </header>
+
+    <main>
+        <section class="hero container" id="home">
+            <div class="hero-content">
+                <div class="eyebrow"><span class="live-dot"></span> SYSTEM ONLINE · VERSION 2.0</div>
+                <h1>ENTER THE<br> <span class="gradient">JAVASCRIPT</span><br>UNIVERSE<span class="pink">_</span></h1>
+                <p class="hero-description">
+                    Твоя интерактивная лаборатория программирования.
+                    Пиши код, запускай эксперименты и открывай возможности JavaScript.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#playground">▶ Запустить лабораторию</a>
+                    <a class="btn btn-outline" href="#learn">Изучить возможности ↗</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div><strong id="statTools">12</strong><span>ИНСТРУМЕНТОВ</span></div>
+                    <i></i>
+                    <div><strong id="statRuns">0</strong><span>ЗАПУСКОВ КОДА</span></div>
+                    <i></i>
+                    <div><strong id="clock">00:00:00</strong><span>СИСТЕМНОЕ ВРЕМЯ</span></div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="orbit orbit-a"></div>
+                <div class="orbit orbit-b"></div>
+                <div class="floating-tag tag-a">const future = true;</div>
+                <div class="floating-tag tag-b">console.log("Hello!");</div>
+                <div class="core-card">
+                    <div class="window-bar">
+                        <span></span><span></span><span></span>
+                        <small>cyber-lab.js</small>
+                    </div>
+                    <div class="code-art">
+                        <p><b>01</b> <span class="purple">const</span> <span class="blue">developer</span> = {</p>
+                        <p><b>02</b> &nbsp; creativity: <span class="green">true</span>,</p>
+                        <p><b>03</b> &nbsp; skills: <span class="orange">"∞"</span>,</p>
+                        <p><b>04</b> &nbsp; future: <span class="pink">"yours"</span></p>
+                        <p><b>05</b> };</p>
+                        <p><b>06</b> <span class="purple">function</span> <span class="blue">buildFuture</span>() {</p>
+                        <p><b>07</b> &nbsp; <span class="purple">return</span> developer;</p>
+                        <p><b>08</b> }</p>
+                        <p><b>09</b> <span class="green">● READY TO RUN</span><span class="cursor">▋</span></p>
+                    </div>
+                    <div class="core-footer"><span>● JAVASCRIPT ENGINE</span><span>100% READY</span></div>
+                </div>
+                <div class="visual-spark spark-a">✦</div>
+                <div class="visual-spark spark-b">✧</div>
+            </div>
+        </section>
+
+        <div class="ticker">
+            <div class="ticker-inner">
+                <span>JAVASCRIPT</span> ✦ <span>DOM</span> ✦ <span>EVENTS</span> ✦
+                <span>ANIMATIONS</span> ✦ <span>ARRAYS</span> ✦ <span>FUNCTIONS</span> ✦
+                <span>JAVASCRIPT</span> ✦ <span>DOM</span> ✦ <span>EVENTS</span> ✦
+                <span>ANIMATIONS</span> ✦ <span>ARRAYS</span> ✦ <span>FUNCTIONS</span> ✦
+            </div>
+        </div>
+
+        <section class="section container" id="playground">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">01 / CODE LAB</span>
+                    <h2>Твой <span class="gradient">Playground</span></h2>
+                </div>
+                <p>Напиши JavaScript и нажми «Запустить». Результат появится в консоли.</p>
+            </div>
+
+            <div class="editor">
+                <div class="editor-head">
+                    <div class="file-tab"><span>JS</span> main.js</div>
+                    <span class="editor-status"><i></i> JavaScript</span>
+                </div>
+                <div class="editor-body">
+                    <div class="line-numbers" id="lineNumbers">1<br>2<br>3<br>4<br>5<br>6</div>
+                    <textarea id="codeInput" spellcheck="false" aria-label="Редактор JavaScript" autocapitalize="off">const name = "Cyber Developer";
+const skills = ["HTML", "CSS", "JavaScript"];
+
+console.log("Welcome to Cyber Lab!");
+console.log("Имя:", name);
+console.log("Навыки:", skills.join(" + "));
+console.log("Случайное число:", Math.floor(Math.random() * 100) + 1);</textarea>
+                </div>
+                <div class="editor-actions">
+                    <button class="btn btn-primary" id="runCode">▶ Запустить код</button>
+                    <button class="btn btn-outline" id="exampleCode">Загрузить пример</button>
+                    <button class="btn btn-outline" id="clearConsole">Очистить вывод</button>
+                    <span class="shortcut">CTRL + ENTER</span>
+                </div>
+                <div class="console">
+                    <div class="console-head"><span>⌁ CONSOLE OUTPUT</span><span id="consoleStatus">Ожидание
+                            запуска...</span></div>
+                    <pre id="consoleOutput">Система готова. Запусти свой первый код.</pre>
+                </div>
+                <p class="editor-note">Запускай только код, который понимаешь. Код выполняется в отдельном sandbox-окне
+                    без доступа к родительской странице.</p>
+            </div>
+        </section>
+
+        <section class="section container" id="tools">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">02 / DIGITAL TOOLS</span>
+                    <h2>Инструменты <span class="gradient">лаборатории</span></h2>
+                </div>
+                <p>Небольшие приложения, которые можно использовать прямо на сайте.</p>
+            </div>
+
+            <div class="tool-search">
+                <span>⌕</span>
+                <input id="toolSearch" type="search" placeholder="Найти инструмент..." aria-label="Поиск инструментов">
+                <span class="search-hint">LIVE SEARCH</span>
+            </div>
+
+            <div class="tools-grid" id="toolsGrid">
+                <article class="tool-card" data-search="calculator калькулятор математика">
+                    <div class="tool-icon">＋</div><span class="tool-number">TOOL 01</span>
+                    <h3>Калькулятор</h3>
+                    <p>Выполняй арифметические операции.</p>
+                    <button class="text-btn" data-open="calculator">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="password пароль генератор безопасность">
+                    <div class="tool-icon">⌘</div><span class="tool-number">TOOL 02</span>
+                    <h3>Генератор паролей</h3>
+                    <p>Создавай случайные пароли разной длины.</p>
+                    <button class="text-btn" data-open="password">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="timer таймер отсчет время">
+                    <div class="tool-icon">◷</div><span class="tool-number">TOOL 03</span>
+                    <h3>Таймер</h3>
+                    <p>Обратный отсчёт с уведомлением.</p>
+                    <button class="text-btn" data-open="timer">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="stopwatch секундомер время">
+                    <div class="tool-icon">◴</div><span class="tool-number">TOOL 04</span>
+                    <h3>Секундомер</h3>
+                    <p>Измеряй время и записывай круги.</p>
+                    <button class="text-btn" data-open="stopwatch">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="random случайное число генератор">
+                    <div class="tool-icon">⚄</div><span class="tool-number">TOOL 05</span>
+                    <h3>Random Generator</h3>
+                    <p>Генерируй случайные числа в диапазоне.</p>
+                    <button class="text-btn" data-open="random">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="notes заметки блокнот сохранить">
+                    <div class="tool-icon">▤</div><span class="tool-number">TOOL 06</span>
+                    <h3>Заметки</h3>
+                    <p>Сохраняй идеи в браузере.</p>
+                    <button class="text-btn" data-open="notes">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="color цвет палитра hex">
+                    <div class="tool-icon">◉</div><span class="tool-number">TOOL 07</span>
+                    <h3>Color Studio</h3>
+                    <p>Выбирай цвет и копируй HEX-код.</p>
+                    <button class="text-btn" data-open="color">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="text текст счетчик символы слова">
+                    <div class="tool-icon">Aa</div><span class="tool-number">TOOL 08</span>
+                    <h3>Text Analyzer</h3>
+                    <p>Считай символы, слова и строки.</p>
+                    <button class="text-btn" data-open="text">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="json formatter форматировать код данные">
+                    <div class="tool-icon">{ }</div><span class="tool-number">TOOL 09</span>
+                    <h3>JSON Formatter</h3>
+                    <p>Проверяй и форматируй JSON.</p>
+                    <button class="text-btn" data-open="json">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="converter конвертер единицы">
+                    <div class="tool-icon">⇄</div><span class="tool-number">TOOL 10</span>
+                    <h3>Unit Converter</h3>
+                    <p>Переводи сантиметры, метры и километры.</p>
+                    <button class="text-btn" data-open="converter">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="reaction реакция скорость игра">
+                    <div class="tool-icon">⚡</div><span class="tool-number">TOOL 11</span>
+                    <h3>Reaction Test</h3>
+                    <p>Проверь скорость своей реакции.</p>
+                    <button class="text-btn" data-open="reaction">Открыть инструмент ↗</button>
+                </article>
+                <article class="tool-card" data-search="todo задачи список дела">
+                    <div class="tool-icon">☑</div><span class="tool-number">TOOL 12</span>
+                    <h3>Task Manager</h3>
+                    <p>Создавай задачи и отмечай выполнение.</p>
+                    <button class="text-btn" data-open="todo">Открыть инструмент ↗</button>
+                </article>
+            </div>
+            <p class="empty-search hidden" id="emptySearch">Ничего не найдено. Попробуй другое слово.</p>
+        </section>
+
+        <section class="section container" id="learn">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">03 / KNOWLEDGE BASE</span>
+                    <h2>Изучи <span class="gradient">JavaScript</span></h2>
+                </div>
+                <p>Нажми на карточку, чтобы посмотреть объяснение и пример кода.</p>
+            </div>
+            <div class="learn-grid">
+                <button class="learn-card"
+                    data-topic="variables"><span>01</span><b>Переменные</b><code>const · let</code><i>↗</i></button>
+                <button class="learn-card"
+                    data-topic="functions"><span>02</span><b>Функции</b><code>function()</code><i>↗</i></button>
+                <button class="learn-card"
+                    data-topic="arrays"><span>03</span><b>Массивы</b><code>map · filter</code><i>↗</i></button>
+                <button class="learn-card"
+                    data-topic="objects"><span>04</span><b>Объекты</b><code>{ key: value }</code><i>↗</i></button>
+                <button class="learn-card"
+                    data-topic="dom"><span>05</span><b>DOM</b><code>querySelector()</code><i>↗</i></button>
+                <button class="learn-card"
+                    data-topic="events"><span>06</span><b>События</b><code>addEventListener()</code><i>↗</i></button>
+                <button class="learn-card"
+                    data-topic="async"><span>07</span><b>Асинхронность</b><code>async · await</code><i>↗</i></button>
+                <button class="learn-card"
+                    data-topic="storage"><span>08</span><b>Хранилище</b><code>localStorage</code><i>↗</i></button>
+            </div>
+        </section>
+
+        <section class="section container">
+            <div class="quote-box">
+                <div class="quote-symbol">“</div>
+                <span class="eyebrow">DEVELOPER MINDSET</span>
+                <h2>Каждая большая программа начинается с <span class="gradient">одной строки кода.</span></h2>
+                <p>Пробуй. Ошибайся. Исправляй. Создавай.</p>
+                <button class="btn btn-primary" id="quoteBtn">Новая мотивация ↻</button>
+                <div class="quote-decoration">JS</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="#home" class="logo">
+            <span class="logo-icon">67</span>
+            <span>SOBIRALIYEV<span class="pink">AMIR</span><small>NURMAKHANOVICH</small></span>
+        </a>
+        <p>Создано для обучения программированию.</p>
+        <a href="#home" class="back-top">НАВЕРХ ↑</a>
+        <span class="copyright">© <span id="year"></span> CYBER LAB</span>
+    </footer>
+
+    <div class="modal-backdrop" id="toolModal" aria-hidden="true">
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-head">
+                <div><span class="eyebrow" id="modalEyebrow">CYBER TOOL</span>
+                    <h2 id="modalTitle">Инструмент</h2>
+                </div>
+                <button class="icon-btn" id="closeModal" aria-label="Закрыть окно">×</button>
+            </div>
+            <div class="modal-content" id="modalContent"></div>
+        </section>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
